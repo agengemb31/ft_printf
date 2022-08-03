@@ -45,6 +45,47 @@ char	*hexa_convert(void const *p)
 	return (hexa_nb);
 }
 
+int	ft_printf(const char *format, ...)
+{
+	va_list it;
+	size_t	i;
+	int	size;
+	
+	va_start(it, format);
+	i = 0;
+	size = 0;
+	while (*(format + i))
+	{
+		if (*(format + i++) == '%')
+		{
+			if (*(format + i) == 'c'))
+				char c = va_arg(it, char);
+				ft_putchar_fd(c, 1);
+			else if (*(format + i) == 's'))
+				char s = va_arg(it, char *);
+				ft_putstr_fd(s, 1);
+			else if (*(format + i) == 'p'))
+				char s = va_arg(it, char *);
+				ft_putstr_fd(s, 1);
+			else if (*(format + i) == 'd' || *(format + i) == 'i'))
+				int entier = va_arg(it, int);
+				ft_putnbr_fd(entier, 1);
+			else if (*(format + i) == 'u'))
+				unsigned int entier = va_arg(it, unsigned int);
+				ft_putnbr_fd(entier, 1);
+			else if (*(format + i) == 'x'))
+				int s = va_arg(it, long);
+				ft_putstr_fd(hexa_convert(s), 1);
+			else if (*(format + i) == 'X'))
+				int s = va_arg(it, long);
+				ft_putstr_fd(ft_toupper(hexa_convert(s)), 1);
+			else if (*(format + i) == '%'))
+				ft_putchar_fd('%', 1);
+			i++;
+		}
+	}
+}
+
 int main()
 {
 	char *p = "coucou";
