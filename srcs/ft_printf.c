@@ -41,6 +41,79 @@ char	*hexa_convert(void const *p)
 	return (hexa_nb);
 }
 
+int char_recovery(va_list *it)
+{
+	char	c;
+
+	c = va_arg(it, char);
+	ft_putchar_fd(c, 1);
+	return (1)
+}
+int str_recovery(va_list *it)
+{
+	char	*s;
+
+	s = va_arg(it, char *);
+	ft_putstr_fd(s, 1);
+	return (ft_strlen(s));
+}
+
+int pointeur_recovery(va_list *it)
+{
+	void	*p;
+	char	*s;
+	
+	p = va_arg(it, void *);
+	s = hexa_convert(p);
+	ft_putstr_fd(s, 1);
+	return (ft_strlen(s));
+}
+
+int int_recovery(char c, va_list *it)
+{
+	char	*s;
+
+	if (c == 'u')
+		s = ft_itoa(va_arg(it, unsigned int));
+	else
+		s = ft_itoa(va_arg(it, int));
+	ft_putstr_fd(s, 1);
+	return (ft_strlen(s));
+}
+
+int hexa_recovery(char c, va_list it)
+{
+	int	integer;
+	char	*s;
+
+	integer = va_arg(it, int);
+	s = hexa_convert(integer);
+	if (c == 'X')
+		s = ft_strmapi(s, &ft_toupper);
+	ft_putstr_fd(s, 1);
+	return (ft_strlen(s));
+}
+
+int	printf_menu(char c, va_list *it)
+{
+	if (c == 'c'))
+		return (char_recovery(it));
+	else if (c== 's'))
+		return (str_recovery(it));
+	else if (c == 'p'))
+		return (pointeur_recovery(it));
+	else if (c == 'd' || c == 'i' || c == 'u')
+		return (int_recovery(c, it));
+	else if (c == 'x' || c == 'X')
+		return (hexa_recovery(c, it));
+	else if (c == '%')
+	{
+		ft_putchar_fd('%', 1);
+		return (1);
+	}
+	return (0);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list it;
@@ -53,41 +126,15 @@ int	ft_printf(const char *format, ...)
 	while (*(format + i))
 	{
 		if (*(format + i++) == '%')
-		{
-			if (*(format + i) == 'c'))
-				char c = va_arg(it, char);
-				ft_putchar_fd(c, 1);
-			else if (*(format + i) == 's'))
-				char s = va_arg(it, char *);
-				ft_putstr_fd(s, 1);
-			else if (*(format + i) == 'p'))
-				char s = va_arg(it, char *);
-				ft_putstr_fd(s, 1);
-			else if (*(format + i) == 'd' || *(format + i) == 'i'))
-				int entier = va_arg(it, int);
-				ft_putnbr_fd(entier, 1);
-			else if (*(format + i) == 'u'))
-				unsigned int entier = va_arg(it, unsigned int);
-				ft_putnbr_fd(entier, 1);
-			else if (*(format + i) == 'x'))
-				int s = va_arg(it, long);
-				ft_putstr_fd(hexa_convert(s), 1);
-			else if (*(format + i) == 'X'))
-				int s = va_arg(it, long);
-				ft_putstr_fd(ft_toupper(hexa_convert(s)), 1);
-			else if (*(format + i) == '%'))
-				ft_putchar_fd('%', 1);
-			i++;
-		}
+			size += printf_menu(*(format + i++), &it)
 	}
 	return (size);
 }
 
 int main()
 {
-	char *p = "coucou";
-
-	printf("%p\n", p);
-	printf("%s\n", hexa_convert((void const *)p));
+	int annee = 1450;
+	char *pays = "France";
+	ft_printf("En l'an %d, la %s avait gagné la guerre de Cent Ans", annee, pays);
 	return (0);
 }
