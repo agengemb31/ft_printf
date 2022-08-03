@@ -14,11 +14,6 @@
 #include <stddef.h>
 #include <stdarg.h>
 
-/*int	ft_printf(const char *format, ...)
-{
-	
-}*/
-
 char	*hexa_convert(void const *p)
 {
 	size_t	size;
@@ -85,6 +80,7 @@ int	ft_printf(const char *format, ...)
 			i++;
 		}
 	}
+	return (size);
 }
 
 int main()
