@@ -12,7 +12,7 @@
 
 #include "../includes/printf.h"
 
-int	str_recovery(va_list *it)
+size_t	str_recovery(va_list *it)
 {
 	char	*s;
 
