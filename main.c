@@ -6,10 +6,11 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 18:13:08 by agengemb          #+#    #+#             */
-/*   Updated: 2022/08/05 21:08:45 by agengemb         ###   ########.fr       */
+/*   Updated: 2022/08/05 22:37:11 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include "includes/printf.h"
 
 int main()
@@ -44,11 +45,15 @@ int main()
 	ft_printf("La guerre de Cent a commence en l'an %u\n", annee);
 	printf("La guerre de Cent a commence en l'an %u\n", annee);
 	
-	char *null_str = NULL;	
-	
-	printf("%s everywhere", null_str);
+	printf("%x\n", LONG_MAX);
+	ft_printf("%x\n", LONG_MAX);
 
-	printf("%c - %s - %p %d - %i - %u - %x %X %%", 'b', null_str, ((void*)0), 20, -20, -1, -1, 200000000);
+	printf("%x\n", LONG_MIN);
+	ft_printf("%x\n", LONG_MIN);
+
+	printf("%x\n", ULONG_MAX);
+	ft_printf("%x\n", ULONG_MAX);
+	
 	return (0);
 }
 

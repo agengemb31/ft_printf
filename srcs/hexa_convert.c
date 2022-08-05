@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:55:17 by agengemb          #+#    #+#             */
-/*   Updated: 2022/08/05 21:04:17 by agengemb         ###   ########.fr       */
+/*   Updated: 2022/08/05 22:37:59 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ char	*hexa_convert(unsigned long n)
 
 size_t	hexa_recovery(char c, va_list *it)
 {
-	unsigned long	integer;
+	unsigned int	integer;
 	size_t	size;
 	char	*s;
 	char	*res;
 
-	integer = va_arg(*it, unsigned long);
+	integer = va_arg(*it, unsigned int);
 	size = 0;
 	if (integer != 0)	
 	{	s = hexa_convert(integer);
