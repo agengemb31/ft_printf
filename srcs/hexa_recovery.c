@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hexa_convert.c                                     :+:      :+:    :+:   */
+/*   hexa_recovery.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:55:17 by agengemb          #+#    #+#             */
-/*   Updated: 2022/08/05 22:37:59 by agengemb         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:08:19 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/printf.h"
+#include "../includes/ft_printf.h"
 
 static char	ft_toupper_bis(unsigned int i, char c)
 {
@@ -18,6 +18,15 @@ static char	ft_toupper_bis(unsigned int i, char c)
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);
 	return (c);
+}
+
+char	*hexa_upper_case(char *s)
+{
+	char	*res;
+
+	res = ft_strmapi(s, &ft_toupper_bis);
+	free(s);
+	return (res);
 }
 
 char	*hexa_convert(unsigned long n)
@@ -50,21 +59,19 @@ char	*hexa_convert(unsigned long n)
 size_t	hexa_recovery(char c, va_list *it)
 {
 	unsigned int	integer;
-	size_t	size;
-	char	*s;
-	char	*res;
+	size_t			size;
+	char			*s;
 
 	integer = va_arg(*it, unsigned int);
-	size = 0;
-	if (integer != 0)	
-	{	s = hexa_convert(integer);
+	size = 1;
+	if (integer != 0)
+	{
+		s = hexa_convert(integer);
 		if (!s)
 			return (0);
 		if (c == 'X')
 		{
-			res = s;
-			s = ft_strmapi(res, &ft_toupper_bis);
-			free(res);
+			s = hexa_upper_case(s);
 			if (!s)
 				return (0);
 		}
@@ -73,9 +80,6 @@ size_t	hexa_recovery(char c, va_list *it)
 		free(s);
 	}
 	else
-	{
 		ft_putstr_fd("0", 1);
-		size = 1;
-	}
 	return (size);
 }

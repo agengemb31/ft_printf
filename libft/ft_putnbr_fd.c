@@ -6,11 +6,11 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 20:31:20 by agengemb          #+#    #+#             */
-/*   Updated: 2022/07/24 23:27:18 by agengemb         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:18:24 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static void	show_number(int n, int fd)
 {
