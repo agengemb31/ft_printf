@@ -16,6 +16,7 @@ Prototype:
 `int ft_printf(const char *, ...);`
 
 Example of usage:  
+  
 `ft_printf("Number: %d\n", number);`  
 `ft_printf("String: %s, Character: %c", "Hello, world!", 'A');`  
 
