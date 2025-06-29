@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://github.com/agengemb31/agengemb31/blob/main/Projects-Badges/ft_printfe.png" alt="ft_printf Logo" />
+</div>
+  
 # fr_printf
 
 Recode the printf function from libc which produce output according to a format:
