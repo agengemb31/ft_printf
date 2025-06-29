@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/agengemb31/agengemb31/blob/main/Projects-Badges/ft_printfe.png" alt="ft_printf Logo" />
+  <img src="https://github.com/agengemb31/agengemb31/blob/main/Projects-Badges/ft_printfe.png" alt="ft_printf Badge" />
 </div>
   
 # fr_printf
