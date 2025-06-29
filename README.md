@@ -15,9 +15,9 @@ Create a main.c file that includes ft_printf.h so you can use the ft_printf func
 Prototype:
 `int ft_printf(const char *, ...);`
 
-Example of usage:
-`ft_printf("Number: %d\n", number);`
-`ft_printf("String: %s, Character: %c", "Hello, world!", 'A');`
+Example of usage:  
+`ft_printf("Number: %d\n", number);`  
+`ft_printf("String: %s, Character: %c", "Hello, world!", 'A');`  
 
 ## The following conversions have been implemented:
 
